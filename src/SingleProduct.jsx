@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useProductContext } from './context/ProductContext';
 import { Container } from './App';
-import { AiFillStar, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { FaTruckFast } from "react-icons/fa6";
 import { TbReplaceFilled } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import PageNavigation from './components/PageNavigation';
 import FormatPrice from './helper/FormatPrice';
+import MySingleProImages from './components/MySingleProImages';
+import Rating from './components/Rating';
+import AddToCart from './components/AddToCart';
 
 
 
+// const SingleProduct = (prop) => {
 const SingleProduct = () => {
 
-  const Api = 'https://api.pujakaitem.com/api/products';
-
+  // const Api = 'https://api.pujakaitem.com/api/products';
+  const Api = 'http://localhost:3000/api/products';
+  
   const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext();
 
   const { id } = useParams();
@@ -23,13 +27,13 @@ const SingleProduct = () => {
   console.log(isSingleLoading, 'isSingleLoading');
   console.log(singleProduct, 'singleProduct');
 
-  const { id: sPageId, name, price, reviews, stars, stock, image = [{url:''}], featured, description, company, category, } = singleProduct;
+  const { name, price, reviews, stars, stock, image,  description, company,  } = singleProduct;
 
-  const [imageName, setImageName] = useState(image[0]);
-  console.log(imageName,'imagName');
+  // console.log(imageName,'imagName');
 
   useEffect(() => {
-    getSingleProduct(`${Api}?id=${id}`)
+    // getSingleProduct(`${Api}?id=${id}`)
+    getSingleProduct(`${Api}/${id}`)
   }, [])
 
   if (isSingleLoading) {
@@ -53,26 +57,14 @@ const SingleProduct = () => {
           <PageNavigation title={name} />
 
           <div className="singleProduct__row">
-            <div className="singleProduct__left">
-              <div className="smallImages">
 
-                 {image.map((ele,index)=>{
-                  {/* console.log(ele,'ele'); */}
-                  return(
-                  <img src={ele.url} alt={ele.filename} key={index} onClick={()=> setImageName(ele)} />
-                  )
-                 })}
-              </div>
-              <div className="bigImage">
-                <img src={imageName.url} alt={image[0].filename} />
-              </div>
+            <div className="singleProduct__left">
+              <MySingleProImages image={image} />
             </div>
+
             <div className="singleProduct__right">
               <h2>{name}</h2>
-              <div className='rating'>
-                <div><AiFillStar /><AiFillStar /><AiFillStar /><AiFillStar /><AiFillStar /></div>
-                <span>({reviews} customers reviews)</span>
-              </div>
+              <Rating stars={stars} reviews={reviews} />
               <p className='mrp'>MRP: <del><FormatPrice price={price + 250000} /></del> </p>
               <h3>Deal of the Day: <FormatPrice price={price} /></h3>
               <p className='description'>{description}</p>
@@ -96,23 +88,13 @@ const SingleProduct = () => {
               </div>
 
               <p className='availavle_stock'>Available:
-               {stock > 0 ? <span style={{color : 'green'}}> In stock</span> : <span style={{color : 'red'}}> Not available</span> } </p>
-    
+                {stock > 0 ? <span style={{ color: 'green' }}> In stock</span> : <span style={{ color: 'red' }}> Not available</span>} </p>
+
               <p className='availavle_stock'>ID: <span>{id}</span></p>
               <p className='availavle_stock'>Brand:  <span>{company}</span></p>
               <hr />
 
-              <div className="colors">
-                <p>Colors: <span></span><span></span><span></span></p>
-              </div>
-
-              <div className="addProduct">
-                <button><AiOutlineMinus /></button>
-                <input type="text" value="1" />
-                <button><AiOutlinePlus /></button>
-              </div>
-
-              <button className='footer__button'>ADD TO CART</button>
+              <AddToCart product={singleProduct} />
 
 
             </div>

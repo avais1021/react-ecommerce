@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container } from '../App';
+import { NavLink } from 'react-router-dom';
 
 
 const HeroSection = ({ myData }) => {
@@ -18,7 +19,7 @@ const HeroSection = ({ myData }) => {
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odio amet sint minus consectetur
                                 ipsum porro ratione hic, illum deserunt? Ab quaerat voluptatum deserunt eos placeat facilis
                                 praesentium vero pariatur.</p>
-                            <button>SHOW NOW</button>
+                            <NavLink to="/product"><button>SHOW NOW</button></NavLink>
                         </div>
                         <div className="hero__right">
                             <img src="shoppingjpg.jpg" alt="shopping_image" />

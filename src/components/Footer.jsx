@@ -40,13 +40,13 @@ const Footer = () => {
                             <p>Follow Us</p>
                             <div className="footer__icons">
                                
-                                <a target='_blank' href="https://www.youtube.com/results?search_query=beautiful+nature+">
+                                <a target='_blank' rel="noopener noreferrer" href="https://www.youtube.com/results?search_query=beautiful+nature+">
                                 <AiFillYoutube />
                                 </a>
-                                <a target='_blank' href="https://www.instagram.com/accounts/login/">
+                                <a target='_blank' rel="noopener noreferrer" href="https://www.instagram.com/accounts/login/">
                                 <AiFillInstagram />
                                 </a>
-                                <a target='_blank' href="https://communitynotes.twitter.com/guide/en/contributing/signing-up">
+                                <a target='_blank' rel="noopener noreferrer" href="https://communitynotes.twitter.com/guide/en/contributing/signing-up">
                                 <AiOutlineTwitter />
                                 </a>
                                 

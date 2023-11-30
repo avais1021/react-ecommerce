@@ -5,7 +5,8 @@ import reducer from '../reducer/ProductReducer';
 
 const AppContext = createContext();
 
-const Api = 'https://api.pujakaitem.com/api/products';
+// const Api = 'https://api.pujakaitem.com/api/products';
+const Api = 'http://localhost:3000/api/products';
 
 const initialState = {
     isLoading : false,
@@ -46,6 +47,7 @@ const AppProvider = ({ children }) => {
             dispatch({type :'SET_SINGLE_ERROR'})
         }
     }
+    
 
     useEffect (()=>{
         getProducts(Api);

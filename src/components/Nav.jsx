@@ -4,12 +4,19 @@ import { styled } from 'styled-components'
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu } from 'react-icons/cg';
 import { CgClose } from 'react-icons/cg';
+import { useCartContext } from '../context/Cart_Context';
+import { useAuth0 } from "@auth0/auth0-react";
 
-const Nav = ({headerClick,iconClicked}) => {
+const Nav = ({ headerClick, iconClicked }) => {
+
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+
+  const { total_cartIconItem } = useCartContext();
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  
-  const ulCsstrue = { left: '0', height : '100vh' }
-  const ulCssfalse = { left: '100%' ,  height : 'auto' }
+
+  const ulCsstrue = { left: '0', height: '100vh' }
+  const ulCssfalse = { left: '100%', height: 'auto' }
   // {iconClicked ? document.body.classList.add('stop_scrolling') : document.body.classList.remove('stop_scrolling')}
 
 
@@ -25,7 +32,7 @@ const Nav = ({headerClick,iconClicked}) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); 
+  }, []);
 
 
 
@@ -50,8 +57,14 @@ const Nav = ({headerClick,iconClicked}) => {
         <li><NavLink to="/about" className="navbar_link" onClick={headerClick}>About</NavLink></li>
         <li><NavLink to="/product" className="navbar_link" onClick={headerClick}>Product</NavLink></li>
         <li><NavLink to="/contact" className="navbar_link" onClick={headerClick}>Contact</NavLink></li>
+        {isAuthenticated ? <li className='userName'>{user.name}</li> : ""}
+        {isAuthenticated ?
+          <li><button className='loginBtn' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} >Logout</button></li>
+          :
+          <li><button className='loginBtn' onClick={() => loginWithRedirect()}>Login</button></li>
+        }
         <li><NavLink to="/cart" className="navbar_link cart_trolley" onClick={headerClick}>
-          <FiShoppingCart className='cart_trolley_icon' /> <span className='cart_total_item'>10</span>
+          <FiShoppingCart className='cart_trolley_icon' /> <span className='cart_total_item'>{total_cartIconItem}</span>
         </NavLink></li>
       </ul>
 
@@ -82,9 +95,11 @@ const NavBar = styled.div`
     background: #b3b3ff;
     font-size: 13px;
     border-radius: 17px;
-    padding: 1px 3px;
-    padding-bottom: 2px;
-    padding-right: 4px;
+    width: 21.96px;
+    height: 21.6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     font-weight: bold;
     }
@@ -93,6 +108,19 @@ const NavBar = styled.div`
     }
     .hamberger{
       display :none ;
+    }
+    .loginBtn{
+    padding: 3px 10px;
+    font-size: 16px;
+    border: none;
+    background: #5973f4;
+    color: white;
+    cursor: pointer;
+
+    }
+    .userName{
+      font-weight: 700;
+    color: black;
     }
    
     @media screen and (max-width :${({ theme }) => theme.media.mobile}){

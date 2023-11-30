@@ -6,6 +6,7 @@ const Product = (currEle) => {
     const {id,category,name,image,price} = currEle; 
   return (
     <>
+    {/* <NavLink to={{pathname: `/singleproduct/${id}`,state:{id: 1, name: 'sabaoon', shirt: 'green'}}}> */}
     <NavLink to={`/singleproduct/${id}`}>
       <div className="featureProducts__row">
         <div className="featureProducts__Card">

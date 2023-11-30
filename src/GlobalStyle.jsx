@@ -61,6 +61,7 @@ display : block;
     font-weight: bold;
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
+    cursor : pointer;
 }
  /* --service section  */
  .service{
@@ -285,7 +286,7 @@ display : block;
  .imageWrapper {
     max-width: 300px;
     width: 100%;
-    height: 230px;
+        height: 230px;
     position: relative;
 }
 .imageWrapper img{
@@ -429,7 +430,7 @@ p.mrp {
 }
 hr{
     font-weight: bold;
-    width: 80%;
+    width: 100%;
     color: black;
     height: 2px;
     background: black;
@@ -439,11 +440,35 @@ hr{
     font-weight: 500;
     font-size: 20px;
 }
-.colors span{
+.colors .wrapperBtn{
+    display : flex;
+    align-items : center;
+    margin-top: 6px;
+}
+.colors button{
     background-color: lightblue;
-    border-radius : 50%;
+    border-radius: 50%;
     padding: 0px 13px;
     margin-left: 10px;
+    height: 26px;
+    width: 26px;
+    border: none;
+    position: relative;
+    opacity : 0.4;
+    cursor : pointer;
+}
+.colors button.active{
+    opacity : 1;
+}
+.colors button:hover{
+    opacity : 1;
+}
+.colors button svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
 }
 .addProduct {
     margin: 15px 0;
@@ -455,13 +480,12 @@ hr{
     background: none;
     font-size: 20px;
     color: darkslategrey;
+    cursor : pointer;
 }
-.addProduct input {
-    border: none;
-    width: 70px;
-    text-align: center;
+.addProduct p {
     font-size: 21px;
-    outline : none;
+    margin: 0 13px;
+    padding-bottom: 5px;
 }
 //PageNavigation ------------
 .pageNavigation{   
@@ -475,7 +499,287 @@ hr{
 .pageNavigation span{
     font-size: 20px;
 }
+//Product section css 
+.AllProduct .row {
+    display : flex;
+    justify-content : space-between;
 
+}
+.AllProduct .row .left{
+    width : 280px;
+}
+.AllProduct .row .right{
+    max-width : 900px;
+    width : 100%;
+}
+.CardList_parent{
+    display : flex;
+    justify-content : space-between;
+    align-items : center;
+    gap : 20px;
+    flex-wrap : wrap;
+}
+.AllProducts__Card{
+    max-width: 250px;
+    width: 100%; 
+}
+.CardList_parent .imageWrapper{
+    max-width: 250px;
+    width: 100%;
+    min-height: 165px;
+    height: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.CardList_parent .imageWrapper img{
+    min-height : 165px;
+ }
+ .AllProduct .searchPList{
+    border: none;
+    box-shadow: 2px 2px 6px;
+    padding: 5px;
+ }
+ .AllProduct h2 {
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+ .AllProduct select {
+    width: 170px;
+    padding: 5px;
+}
+ .AllProduct p {
+    color: #000000a1;
+    margin-bottom: 5px;
+}
+ .AllProduct button.clearFilter {
+    border: none;
+    background: #ff000078;
+    color: white;
+    padding: 5px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.filterColor {
+    display: flex;
+    gap: 7px;
+}
+.filter_sec form button {
+    display: block;
+    background: unset;
+    border: none;
+    border-bottom: 1px solid;
+    margin-top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #000000a1;
+}
+
+.filterColor.colors button:nth-child(1) {
+    color: black;
+    opacity: 1;
+    border: unset;
+    padding: unset;
+}
+
+//List Product
+.list_product .featureProducts__row{
+    border: 1px solid grey;
+    padding: 15px 40px;
+    margin-bottom: 25px;
+}
+.list_product .featureProducts__Card {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+} 
+    
+.list_product .name_price{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+} 
+button.read_more {
+    padding: 6px 12px;
+    background: white;
+    border: 2px solid #b8c2ff;
+    color: #626ab8;
+    border-radius: 10px;
+    cursor : pointer;
+}
+.list_product .name_price p:nth-child(1) {
+    font-weight: 700;
+    color: black;
+}
+//Sort Component
+.sorting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.sortingIcons svg {
+    font-size: 24px;
+    margin-right: 15px;
+    cursor : pointer;
+    padding: 5px;
+    background: gainsboro;
+}
+.sorting h2{
+    margin-top: unset;
+    margin-bottom: unset;
+    font-weight: bolder;
+    text-shadow: 2px 2px 6px burlywood;
+    font-family: monospace;
+    font-size: 22px;
+}
+.sortingIcons .active{
+    background : #5973f4;;
+    color : white;
+}
+//Cart page
+.userInfo {
+    margin-bottom: 25px;
+    display: flex;
+    gap: 20px;
+}
+.cartNav .row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cartNav h3 {
+    font-weight: 400;
+    max-width: 220px;
+    width: 100%;
+    text-align: center;
+}
+
+.cartInfoSingle {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.cartInfoItem {
+    max-width: 220px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cartInfo p {
+    max-width: 220px;
+    width: 100%;
+    text-align: center;
+}
+.nameColor .color{
+    display: flex;
+    align-items: center;
+}
+.nameColor span{
+    padding: 0px 10px;
+    border-radius: 11px;
+    margin-left: 10px;
+    display: block;
+    height: 20px;
+    width: 20px;
+    margin-top: 5px;
+}
+
+.cartInfo .addProduct {
+    max-width: 220px;
+    width: 100%;
+}
+.cartInfo .remove{
+    max-width: 220px;
+    width: 100%;
+}
+.cartInfo .forCart{
+    max-width: 220px;
+    width: 100%;
+}
+.cartInfo .forCart .addProduct{
+    width: 100px;
+    margin: 0 auto;
+}
+.cartInfoItem img{
+    width: 50px;
+    height: 34px;
+    margin-right: 12px;
+}
+.cartInfo .remove svg {
+    max-width: 220px;
+    width: 100%;
+    cursor: pointer;
+    color: red;
+    font-size: 21px;
+}
+.cartInfoItem .row{
+    max-width: 175px;
+    width: 100%;
+    justify-content: start;
+}
+.nameColor p{
+    text-align : left;
+}
+.continueShop{
+    display: flex;
+    justify-content : space-between;
+    align-items : center;
+    margin-top : 40px;
+}
+.continueShop a{
+    padding: 10px 10px;
+    font-size: 16px;
+    border: none;
+    background: #5973f4;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+.continueShop button{
+    padding: 10px 10px;
+    font-size: 16px;
+    border: none;
+    background: #f4597a;
+    color: white;
+    cursor: pointer;
+}
+.no_cart {
+    font-family: math;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.orderTotalPrice{
+    display : flex;
+    justify-content : right;
+    margin-top: 20px;
+}
+.orderTotalPrice .row{
+    display : block;
+    background-color: #80808012;
+    padding: 20px;
+    max-width: 247px;
+    width: 100%;
+}
+.orderTotalPrice .row div{
+    display : flex;
+    justify-content : space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.orderTotalPrice p {
+    color: #0000008f;
+    width: 100%;
+}
+.orderTotalPrice .row h3{
+    text-align : right;
+}
  
 @media screen and (max-width: ${({ theme }) => theme.media.mob}){
     /* --hero section  */

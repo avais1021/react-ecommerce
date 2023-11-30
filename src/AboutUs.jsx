@@ -11,7 +11,7 @@ const AboutUs = () => {
 
 
 
-  const data = {
+  const data2 = {
     name : 'Alisha Products'
   }
   
@@ -19,8 +19,7 @@ const AboutUs = () => {
 
   return (
     <>
-    <HeroSection myData={data}/>
-   
+    <HeroSection myData={data2}/>
     </>
   )
 }

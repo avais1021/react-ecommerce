@@ -34,10 +34,9 @@ const FeatureProducts = () => {
                             {featureProducts.map((currEle) => {
                                 console.log(currEle, 'currEle');
                                 return (
-                                    <>
+                                    
                                         <Product key={currEle.id} {...currEle} />
-                                        {/* <p>{currEle.name}</p> */}
-                                    </>
+                                    
                                 )
                             })}
                         </div>

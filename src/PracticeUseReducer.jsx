@@ -1,4 +1,4 @@
-import React,{useReducer} from 'react'
+import React,{useReducer, useState} from 'react'
 
 const PracticeUseReducer = () => {
     const initialState = 0;
@@ -30,6 +30,9 @@ const PracticeUseReducer = () => {
             <button onClick={() => dispatch("increment")}>Increment</button>
         </>
     )
+
+    
+
 }
 
 export default PracticeUseReducer
