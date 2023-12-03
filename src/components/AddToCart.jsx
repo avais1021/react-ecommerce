@@ -26,7 +26,7 @@ const AddToCart = ({ product }) => {
     return (
         <>
             <div className="colors">
-                <p>Colors:</p>
+                <p>Colorss:</p>
                 <div className="wrapperBtn">
                     {colors.map((item, idx) => {
                         return <button className={checkColor === item ? 'active' : ''}
