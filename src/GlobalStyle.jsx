@@ -80,6 +80,9 @@ display : block;
     align-items: center;
     gap: 15px;
  }
+ .service__Cards p{
+    text-align : center;
+ }
  .service__centerCard{
     width : 25%;
     min-height : 260px;
@@ -514,7 +517,7 @@ hr{
 }
 .CardList_parent{
     display : flex;
-    justify-content : space-between;
+    justify-content : space-around;
     align-items : center;
     gap : 20px;
     flex-wrap : wrap;
@@ -618,7 +621,13 @@ button.read_more {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+}
+.serach__price_grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 .sortingIcons svg {
     font-size: 24px;
@@ -627,13 +636,19 @@ button.read_more {
     padding: 5px;
     background: gainsboro;
 }
-.sorting h2{
+.sortingIcons {
+    display: flex;
+    align-items: center;
+}
+.filter_product_qty{
     margin-top: unset;
     margin-bottom: unset;
     font-weight: bolder;
     text-shadow: 2px 2px 6px burlywood;
     font-family: monospace;
     font-size: 22px;
+    text-align : center;
+    margin-bottom : 20px !important;
 }
 .sortingIcons .active{
     background : #5973f4;;
@@ -781,18 +796,178 @@ button.read_more {
     text-align : right;
 }
  
-@media screen and (max-width: ${({ theme }) => theme.media.mob}){
+@media screen and (max-width: ${({ theme }) => theme.media.mobile}){
+   
+    // Navbar ------
+    .bxpOIp .navBar a {
+    font-size: 20px;
+    }
+    .bxpOIp .cart_trolley_icon {
+    font-size: 24px !important;
+    }
+    // Service section  
+    .service {
+    flex-direction: column;
+    }
+    .service__Cards{
+        width : 270px !important;
+    }
     /* --hero section  */
     .hero {
     flex-direction: column-reverse;
     gap: 30px;
-    /* --service section  */
     }
-     /* --hero section  */
+    .hero__left {
+    max-width: 346px;
+    width: 100%;
+    }
+    .hero__right {
+    max-width: 270px;
+    width: 100%;
+    }
+    // Our feature 
+    .product_row{
+        flex-direction : column;
+    }
     .featureProducts img{
     width: 250px;
-    height: 250px;
+    height: 205px;
+    }
+
+    // Companies section
+
+    .companies__details{
+        width: 100%;
+        justify-content : center;
+        gap: 10px;
+        flex-wrap : wrap;
+        
+    }
+    .companies__details img{
+        width: 55px;
+    }
+
+    //get started
+    .getStarted__wrapper {
+    padding: 20px 0 20px 0;
+    }
+
+   // footer 
+   .footer__policy {
+    gap: 7px;
+    text-align :center;
+    }
+
+    // cart page
+    .continueShop{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .orderTotalPrice {
+    justify-content: center;
+    }
+    .items_info{
+        width : 738px
+    }
+    .items_info__wrapper{
+        width: 100%;
+        overflow-x: scroll;
+        padding-bottom: 10px;
+    }
+    .right_scroll{
+    font-size: 17px;
+    color: #808080c2;
+    text-align: right !important;
+    max-width: 310px !important;
+    }
+
+    //sorting section 
+    .sorting{
+        flex-wrap: wrap;
+        justify-content: right;
+        gap : 20px;
+    }
+    .sortingIcons svg{
+        margin-right : unset;
+    }
+    .show_filter{
+    background: darkblue;
+    padding: 3px 15px;
+    color: white;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor : pointer;
+    }
+    .filter_doneBtn{
+    position: absolute;
+    right: 15px;
+    top: 24px;
+    color: green !important;
+    font-size: 28px !important;
+    margin-top: unset !important;
+    border: none !important;
+    }
+    
+
+    //products page
+    .allPro_sec{
+        position : relative;
+    }
+    .AllProduct .row .left {
+    ${'' /* width: 0;
+    overflow: hidden; */}
+    transition: 1s linear;
+    }
+    .AllProduct .row .left.remove_act{
+    position: absolute;
+    left : 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 10;
+    background: white;
+    width: 0;
+    padding: 0;
+    }
+    .AllProduct .row .left.active {
+    position: absolute;
+    left : 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 10;
+    background: white;
+    width: 100%;
+    padding: 0 20px;
+    }
+
+    // list products
+    .imageWrapper {
+    max-width: 120px;
+    height: 100px;
+    }
+    .list_product .featureProducts__Card {
+    flex-direction: column;
+    gap: 15px;
+    }
+
+    
+    // single product page
+    .singleProduct__row{
+        flex-direction : column;
+        margin-top : 20px;
+    }
+    .bigImage {
+    height: 215px;
+    }
+
+    //feauture product
+    .featureProducts__Card .imageWrapper{
+        max-width: 250px;
+        height: 160px;
+    }
+    .featureProducts__Card .imageWrapper {
+    height: 100%;
     }
 
 }
+
 `

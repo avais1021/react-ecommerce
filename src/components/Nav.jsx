@@ -15,10 +15,12 @@ const Nav = ({ headerClick, iconClicked }) => {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const ulCsstrue = { left: '0', height: '100vh' }
-  const ulCssfalse = { left: '100%', height: 'auto' }
+  // const ulCsstrue = { left: '0', height: '100vh' }
+  // const ulCssfalse = { left: '100%', height: 'auto' }
+  const ulCsstrue = { height: '100vh', display: 'flex', zIndex: '1' }
+  const ulCssfalse = { height: 'auto' }
   // {iconClicked ? document.body.classList.add('stop_scrolling') : document.body.classList.remove('stop_scrolling')}
-
+  iconClicked ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset';
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -130,6 +132,7 @@ const NavBar = styled.div`
         height: 100%;
         /* top: 165px; */
         top : 0;
+        left : 0;
         /* z-index : -1; */
         /* left: 100%; */
         flex-direction: column;
@@ -137,6 +140,7 @@ const NavBar = styled.div`
        justify-content: center;
        background : white;
        padding-right: unset;
+       display : none;
       }
 
       .hamberger{
@@ -145,7 +149,8 @@ const NavBar = styled.div`
     .hamberger{
       font-size : 35px;
       position: absolute;
-      right: 0px;
+      right: 15px;
+      top: 37px;
       z-index: 10;
     }
 

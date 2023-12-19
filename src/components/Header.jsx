@@ -29,7 +29,7 @@ const Header = () => {
 const HeaderRow = styled.div`
 display:flex;
 justify-content: space-between;
-/* align-items : center; */
+align-items : center;
 /* min-height: 88px; */
 width : 100% ;
 /* min-height : 100vh; */

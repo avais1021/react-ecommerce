@@ -3,8 +3,10 @@ import React from 'react'
 import { useFilterContext } from '../context/Filter_Context';
 import { AiOutlineCheck } from "react-icons/ai";
 import FormatPrice from '../helper/FormatPrice';
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
-const FilterSection = () => {
+
+const FilterSection = ({onPress , clickVal}) => {
 
   // const { products } = useProductContext()
 
@@ -65,8 +67,9 @@ const FilterSection = () => {
 
       <form onSubmit={(e) => e.preventDefault()}>
 
-        <input className='searchPList' type="text" placeholder='SEARCH' name='text' value={text} onChange={updateFilterValue} />
+        {/* <input className='searchPList' type="text" placeholder='SEARCH' name='text' value={text} onChange={updateFilterValue} /> */}
 
+        {clickVal ? <button onClick={onPress} className='filter_doneBtn'><IoMdCheckmarkCircleOutline /></button> : null }
         <h2>Category</h2>
 
         {categoryData.map((ele, idx) => {
