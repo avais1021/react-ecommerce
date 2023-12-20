@@ -17,7 +17,8 @@ import AddToCart from './components/AddToCart';
 const SingleProduct = () => {
 
   // const Api = 'https://api.pujakaitem.com/api/products';
-  const Api = 'http://localhost:3000/api/products';
+  //const Api = 'http://localhost:3000/api/products';
+  const Api = 'https://ecomm-api-dydp.onrender.com/api/products';
   
   const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext();
 
