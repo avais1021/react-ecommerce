@@ -20,7 +20,7 @@ const Nav = ({ headerClick, iconClicked }) => {
   const ulCsstrue = { height: '100vh', display: 'flex', zIndex: '1' }
   const ulCssfalse = { height: 'auto' }
   // {iconClicked ? document.body.classList.add('stop_scrolling') : document.body.classList.remove('stop_scrolling')}
-  iconClicked ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset';
+  iconClicked && windowWidth < 768.9 ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'unset';
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
